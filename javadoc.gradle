@@ -11,8 +11,7 @@ android.applicationVariants.all { variant ->
       classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
 
       description "Generates Javadoc for $variant.name."
-
-      options.bootClasspath file("${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar")
+      
       options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PACKAGE
       options.encoding 'utf-8'
       options.links("http://docs.oracle.com/javase/7/docs/api/");
