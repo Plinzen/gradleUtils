@@ -15,7 +15,7 @@ android.applicationVariants.all { variant ->
       options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PACKAGE
       options.encoding 'utf-8'
       options.links("http://docs.oracle.com/javase/7/docs/api/");
-      options.links("http://developer.android.com/reference/reference/");
+      options.links("http://developer.android.com/reference/");
       exclude '**/BuildConfig.java'
       exclude '**/R.java'
    }
