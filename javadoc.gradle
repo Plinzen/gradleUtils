@@ -1,0 +1,21 @@
+android.applicationVariants.all { variant ->
+
+   task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+      title =
+            "Documentation for Android $android.defaultConfig.versionName b$android.defaultConfig.versionCode"
+      destinationDir =
+            new File("${project.getBuildDir()}/outputs/javadoc/", variant.baseName)
+      source = variant.javaCompile.source
+
+      ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+      classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+
+      description "Generates Javadoc for $variant.name."
+
+      options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PACKAGE
+      options.links("http://docs.oracle.com/javase/7/docs/api/");
+      options.links("http://developer.android.com/reference/reference/");
+      exclude '**/BuildConfig.java'
+      exclude '**/R.java'
+   }
+}
