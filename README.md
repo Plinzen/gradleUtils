@@ -19,5 +19,10 @@ project-root
           |-> checkstyle.xml
           |-> checkstyle.xsl
 ```
-
 2. add the following line to your app build.grade: `https://raw.githubusercontent.com/Plinzen/gradleUtils/master/checkstyle.gradle`
+
+## Usage
+Run the gradle-tasks checkstyle or checkstyleReport: `./gradlew checkstyle checkstyleReport`
+
+## On-the-Fly usage
+Android Studio has an additional plugin `CheckStyle-IDEA` which can be installed and configured to use the rules from the config-folder. The plugin add a new window in the buttombar which shows all checkstyle warnings in the current scope. 
