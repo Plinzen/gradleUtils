@@ -1,4 +1,4 @@
-def countGitCommits() {
+ext.countGitCommits = { ->
     def status = 'git status'.execute([], rootDir)
     status.waitFor()
     def isGitProject = status.exitValue()
