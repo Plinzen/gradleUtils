@@ -7,6 +7,19 @@ Provides the possibility to generate Javadoc with gradle task: generate$Variant$
 ## Installation
 add the following line to your app build.grade: `https://raw.githubusercontent.com/Plinzen/gradleUtils/master/javadoc.gradle`
 
+# countGitCommits.gradle
+Provides a function to count the git commits in your project. Sample usage:
+
+```
+def numberOfCommits = countGitCommits();
+versionCode 8000 + numberOfCommits
+versionName "0.8.$numberOfCommits"
+```
+
+## Installation
+add the following line to your app build.grade: `https://raw.githubusercontent.com/Plinzen/gradleUtils/master/countGitCommits.gradle`
+
+
 # checkstyle.gradle
 Add some Checkstyle code analysis tasks. Works currently only without product flavor usage since some paths are hard coded.
 
