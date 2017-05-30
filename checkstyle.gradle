@@ -2,19 +2,20 @@ apply plugin: 'checkstyle'
 
 task checkstyle(type: Checkstyle) {
     source 'src/'
+    include '**/*.kt'
     include '**/*.java'
     exclude '**/gen/**'
     classpath = files()
     reports {
         xml {
-            destination "build/outputs/reports/checkstyle-results.xml"
+            destination file("build/outputs/reports/checkstyle-results.xml")
         }
     }
     group = JavaBasePlugin.VERIFICATION_GROUP
     description = 'Performs checkstyle verification on the code.'
 }
 
-task checkstyleReport(dependsOn: 'checkstyle', group: JavaBasePlugin.VERIFICATION_GROUP) << {
+task checkstyleReport(dependsOn: 'checkstyle', group: JavaBasePlugin.VERIFICATION_GROUP) {
     if (file("build/outputs/reports/checkstyle-results.xml").exists()) {
         ant.xslt(in: "build/outputs/reports/checkstyle-results.xml",
                 style: "./config/checkstyle/checkstyle.xsl",
